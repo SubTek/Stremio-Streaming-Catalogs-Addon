@@ -21,6 +21,7 @@ export async function fetchCinemetaMeta(imdbId, type, fallbackTitle = null) {
       return {
         ...cinemetaResponse.data.meta,
         id: imdbId,
+        type: cinemetaType, // Always set a valid Stremio type ('movie' | 'series')
         name: cinemetaResponse.data.meta.name || fallbackTitle,
         videos: undefined, // Remove videos array
       };
